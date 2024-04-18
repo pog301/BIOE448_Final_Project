@@ -2,7 +2,7 @@
 // Citations at the end
 
 #include <Servo.h>
-#include "thingProperties.h"
+// #include "thingProperties.h"
 
 Servo myservo;  // creates Servo object to control a servo
 Servo myservo2;
@@ -41,15 +41,15 @@ void loop() {
     // val =
   // }
 
-  for (int i = 0; i <= 10; i++) {
-    val = map(val, 0, 1, 0, 180);     // scale it for use with the servo (value between 0 and 180)
+  //for (int i = 0; i <= 10; i++) {
+    //val = map(val, 0, 1, 0, 180);     // scale it for use with the servo (value between 0 and 180)
     // myservo.write(val);                  // sets the servo position according to the scaled value
-    myservo2.write(val); 
-    //myservo3.write(val); 
-    val = abs(val - 1);
-    delay(30);                           // waits for the servo to get there
-    Serial.print(val);
-  }
+    // myservo2.write(val); 
+    // myservo3.write(val); 
+    //val = abs(val - 1);
+    //delay(30);                           // waits for the servo to get there
+    //Serial.print(val);
+  //}
 
 }
 
