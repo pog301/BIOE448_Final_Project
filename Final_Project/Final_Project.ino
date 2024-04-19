@@ -4,56 +4,52 @@
 #include <Servo.h>
 // #include "thingProperties.h"
 
-Servo myservo;  // creates Servo object to control a servo
-Servo myservo2;
-Servo myservo3;
-// int potpin = A0;  // analog pin used to connect the potentiometer
-int val = 0;    // variable to read the value from the analog pin
-
-const int ECG1_pin = A6;
+Servo myservo;  // Comment taken from Servo code: creates Servo object to control servo 1
+Servo myservo2; // Comment taken from Servo code: creates Servo object to control servo 2
+Servo myservo3; // Comment taken from Servo code: creates Servo object to control servo 3
+const int ECG1_pin = A6; // Creates a constant integer with the signal input for the ECG sensor
 int pulse_signal = 0;
-
-//int threshold = ;
-// String state = ; 
+int servo_value = 0; 
+int threshold = 30; // change! 
+String state = 'Start'; 
 
 void setup() {
   Serial.begin(9600);
-  // put your setup code here, to run once:
-  myservo.attach(6);  // attaches the servo on pin 6 (PWM) to the Servo object
-  myservo2.attach(7);
-  myservo3.attach(8);
-
+  myservo.attach(6);  // Comment taken from Servo code: Attaches the servo on pin 6 (PWM) to the Servo object
+  myservo2.attach(7); // Comment taken from Servo code: Attaches the servo on pin 7 (PWM) to the Servo object
+  myservo3.attach(8); // Comment taken from Servo code: Attaches the servo on pin 8 (PWM) to the Servo object
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  // val = analogRead(potpin);            // reads the value of the potentiometer (value between 0 and 1023)
-  // val = map(val, 0, 1023, 0, 180);     // scale it for use with the servo (value between 0 and 180)
-
   pulse_signal = analogRead(ECG1_pin);
   Serial.print(pulse_signal);
   delay(1);
+  if (pulse_signal > threshold) {  
+    servo_value = 0;  
+  } else {
+    servo_value = 180;
+  }
+  Serial.print(servo_value);
+  myservo.write(servo_value); 
+  myservo2.write(servo_value); 
+  myservo3.write(servo_value);
+  delay(10);  
+  //if () {
+    //state = '';
+  //} else {
 
-  // if (pulse_signal > threshold) {  
-    // val = ;
-    // state = ;
-  // } else {
-    // val =
-  // }
+  //}
+
 
   //for (int i = 0; i <= 10; i++) {
-    //val = map(val, 0, 1, 0, 180);     // scale it for use with the servo (value between 0 and 180)
-    // myservo.write(val);                  // sets the servo position according to the scaled value
-    // myservo2.write(val); 
-    // myservo3.write(val); 
-    //val = abs(val - 1);
-    //delay(30);                           // waits for the servo to get there
-    //Serial.print(val);
-  //}
+    //myservo3.write(servo_value); 
+    // val = abs(val - 1);          
+  // }
 
 }
 
 // CITATIONS: 
 //1) Servo related code taken and modified from example 'Knob.ino' from the Servo library: 
     // https://github.com/arduino-libraries/Servo/blob/master/examples/Knob/Knob.ino (made by Michal Rinott and modified by Scott Fitzgerald)
+
 
