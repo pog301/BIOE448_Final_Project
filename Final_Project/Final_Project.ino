@@ -18,6 +18,19 @@ void setup() {
   myservo.attach(6);  // Comment taken from Servo code: Attaches the servo on pin 6 (PWM) to the Servo object
   myservo2.attach(7); // Comment taken from Servo code: Attaches the servo on pin 7 (PWM) to the Servo object
   myservo3.attach(8); // Comment taken from Servo code: Attaches the servo on pin 8 (PWM) to the Servo object
+  
+  //delay(1500)
+  //initproperties();
+
+  //ArduinoCloud.begin(ArduinoIotPreferredConnection);
+  //setDebugMessageLevel(2);
+  //ArduinoCloud.printDebugInfo();
+
+  //while (ArduinoCloud.connected() != 1) {
+    //ArduinoCloud.update();
+    //delay(500);
+  //}
+
 }
 
 void loop() {
@@ -34,12 +47,22 @@ void loop() {
   myservo2.write(servo_value); 
   myservo3.write(servo_value);
   delay(10);  
-  //if () {
-    //state = '';
-  //} else {
-
+  
+  //if (servo_value == 180) {
+    // state =  "";
+  //} else if (servo_value == 0) {
+    // state = "";
   //}
 
+  //counter++;
+  //if (counter > 100){
+    //ArduinoCloud.update();
+    //Serial.println(state);
+    //counter = 0;
+  //}
+
+
+  // ------
 
   //for (int i = 0; i <= 10; i++) {
     //myservo3.write(servo_value); 
@@ -51,5 +74,6 @@ void loop() {
 // CITATIONS: 
 //1) Servo related code taken and modified from example 'Knob.ino' from the Servo library: 
     // https://github.com/arduino-libraries/Servo/blob/master/examples/Knob/Knob.ino (made by Michal Rinott and modified by Scott Fitzgerald)
+//2) Also used the code from class (different labs)
 
 
