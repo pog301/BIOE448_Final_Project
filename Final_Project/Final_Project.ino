@@ -2,16 +2,16 @@
 // Citations at the end //ADDED
 
 #include <Servo.h> //ADDED
-// #include "thingProperties.h"
+// #include "thingProperties.h" //ADDED
 
 Servo myservo;  //ADDED // Comment taken from Servo code: creates Servo object to control servo 1
 //Servo myservo2; // Comment taken from Servo code: creates Servo object to control servo 2
 //Servo myservo3; // Comment taken from Servo code: creates Servo object to control servo 3
-const int ECG1_pin = A6; // Creates a constant integer with the signal input for the ECG sensor
-int pulse_signal = 0;
+const int ECG1_pin = A6; //ADDED // Creates a constant integer with the signal input for the ECG sensor
+int pulse_signal = 0; //ADDED
 int servo_value = 0; //ADDED
-int threshold = 30; // change! 
-char Str6[15] = "start"; 
+int threshold = 30; // change! //ADDED
+char Str6[15] = "start"; // ADDED
 
 void setup() {
   Serial.begin(9600); //ADDED
@@ -19,25 +19,25 @@ void setup() {
   //myservo2.attach(7); // Comment taken from Servo code: Attaches the servo on pin 7 (PWM) to the Servo object
   //myservo3.attach(8); // Comment taken from Servo code: Attaches the servo on pin 8 (PWM) to the Servo object
   
-  //delay(1500)
-  //initproperties();
+  //delay(1500) //ADDED
+  //initproperties(); //ADDED
 
-  //ArduinoCloud.begin(ArduinoIotPreferredConnection);
-  //setDebugMessageLevel(2);
-  //ArduinoCloud.printDebugInfo();
+  //ArduinoCloud.begin(ArduinoIotPreferredConnection); //ADDED
+  //setDebugMessageLevel(2); //ADDED
+  //ArduinoCloud.printDebugInfo(); //ADDED
 
-  //while (ArduinoCloud.connected() != 1) {
-    //ArduinoCloud.update();
-    //delay(500);
-  //}
+  //while (ArduinoCloud.connected() != 1) { //ADDED
+    //ArduinoCloud.update(); //ADDED
+    //delay(500); //ADDED
+  //} //ADDED
 
 }
 
 void loop() {
   delay(100);
-  pulse_signal = analogRead(ECG1_pin);
-  Serial.print(pulse_signal);
-  delay(10);
+  pulse_signal = analogRead(ECG1_pin); //ADDED
+  Serial.print(pulse_signal); //ADDED
+  delay(10); //ADDED
   if (pulse_signal > threshold) {  
     servo_value = 0;  
   } else {
@@ -52,9 +52,9 @@ void loop() {
   //delay(10);  
   
   //if (servo_value == 180) {
-    // state =  "";
+    // state =  ""; //ADDED
   //} else if (servo_value == 0) {
-    // state = "";
+    // state = ""; //ADDED
   //}
 
   //counter++;
