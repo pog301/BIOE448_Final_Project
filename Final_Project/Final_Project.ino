@@ -34,9 +34,10 @@ void setup() {
 }
 
 void loop() {
+  delay(100);
   pulse_signal = analogRead(ECG1_pin);
   Serial.print(pulse_signal);
-  delay(1);
+  delay(10);
   if (pulse_signal > threshold) {  
     servo_value = 0;  
   } else {
@@ -44,7 +45,9 @@ void loop() {
   }
   Serial.print(servo_value);
   myservo.write(servo_value); 
+  delay(10);
   myservo2.write(servo_value); 
+  delay(10);
   myservo3.write(servo_value);
   delay(10);  
   
