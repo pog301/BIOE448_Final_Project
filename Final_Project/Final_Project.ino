@@ -5,8 +5,8 @@
 // #include "thingProperties.h"
 
 Servo myservo;  // Comment taken from Servo code: creates Servo object to control servo 1
-Servo myservo2; // Comment taken from Servo code: creates Servo object to control servo 2
-Servo myservo3; // Comment taken from Servo code: creates Servo object to control servo 3
+//Servo myservo2; // Comment taken from Servo code: creates Servo object to control servo 2
+//Servo myservo3; // Comment taken from Servo code: creates Servo object to control servo 3
 const int ECG1_pin = A6; // Creates a constant integer with the signal input for the ECG sensor
 int pulse_signal = 0;
 int servo_value = 0; 
@@ -16,8 +16,8 @@ char Str6[15] = "start";
 void setup() {
   Serial.begin(9600);
   myservo.attach(6);  // Comment taken from Servo code: Attaches the servo on pin 6 (PWM) to the Servo object
-  myservo2.attach(7); // Comment taken from Servo code: Attaches the servo on pin 7 (PWM) to the Servo object
-  myservo3.attach(8); // Comment taken from Servo code: Attaches the servo on pin 8 (PWM) to the Servo object
+  //myservo2.attach(7); // Comment taken from Servo code: Attaches the servo on pin 7 (PWM) to the Servo object
+  //myservo3.attach(8); // Comment taken from Servo code: Attaches the servo on pin 8 (PWM) to the Servo object
   
   //delay(1500)
   //initproperties();
@@ -46,10 +46,10 @@ void loop() {
   Serial.print(servo_value);
   myservo.write(servo_value); 
   delay(10);
-  myservo2.write(servo_value); 
-  delay(10);
-  myservo3.write(servo_value);
-  delay(10);  
+  //myservo2.write(servo_value); 
+  //delay(10);
+  //myservo3.write(servo_value);
+  //delay(10);  
   
   //if (servo_value == 180) {
     // state =  "";
@@ -75,7 +75,7 @@ void loop() {
 }
 
 // CITATIONS: 
-//1) Servo related code taken and modified from example 'Knob.ino' from the Servo library: 
+//1) Servo related code taken and modified from example 'Knob.ino' from the Arduino Servo library: 
     // https://github.com/arduino-libraries/Servo/blob/master/examples/Knob/Knob.ino (made by Michal Rinott and modified by Scott Fitzgerald)
 //2) Also used the code from class (different labs)
 
