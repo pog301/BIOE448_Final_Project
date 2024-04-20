@@ -2,18 +2,61 @@
 // Citations at the end
 
 #include <Servo.h>
+// #include "thingProperties.h"
 
+const int ECG1_pin = A6; // Creates a constant integer with the signal input for the ECG sensor
 Servo myservo;  // Comment taken from Servo code: creates Servo object to control servo 1
 int servo_value = 0;
+float pulse_signal = 0;
+int threshold = 200; // Obtained from ECG values 
+char state[7] = "     ";
 
 void setup() {
   Serial.begin(9600);
   myservo.attach(6);  // Comment taken from Servo code: Attaches the servo on pin 6 (PWM) to the Servo object
+
+  //delay(1500)
+  //initproperties();
+
+  //ArduinoCloud.begin(ArduinoIotPreferredConnection);
+  //setDebugMessageLevel(2);
+  //ArduinoCloud.printDebugInfo();
+
+  //while (ArduinoCloud.connected() != 1) {
+    //ArduinoCloud.update();
+    //delay(500);
+  //}
+
 }
 
 void loop() {
-  //myservo.write(servo_value); 
-  //delay(10);
- 
+  pulse_signal = analogRead(ECG1_pin);
+  //Serial.println(pulse_signal);
+  delay(200);
+  if (pulse_signal > threshold) {  
+    servo_value = 180;  
+    strcpy(state, "closed");
+  } else {
+    servo_value = 0;
+    strcpy(state, "open  ");
+  }
+  //Serial.println(servo_value);
+  Serial.println(state);
+  delay(10);
+  myservo.write(servo_value); 
+  delay(20);
+
+  //counter++;
+  //if (counter > 100){
+    //ArduinoCloud.update();
+    //Serial.println(state);
+    //counter = 0;
+  //}
+
 }
 
+
+//for (servo_value = 0; servo_value <= 180; servo_value += 1) {
+    //myservo.write(servo_value);
+    //delay(15);
+  //}
