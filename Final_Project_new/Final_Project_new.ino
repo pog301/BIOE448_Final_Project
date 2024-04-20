@@ -60,3 +60,12 @@ void loop() {
     //myservo.write(servo_value);
     //delay(15);
   //}
+
+
+
+
+// CITATIONS: 
+//1) Servo related code taken and modified from example 'Knob.ino' from the Arduino Servo library: 
+    // https://github.com/arduino-libraries/Servo/blob/master/examples/Knob/Knob.ino (made by Michal Rinott and modified by Scott Fitzgerald)
+//2) Also used the code from class (different labs)
+
