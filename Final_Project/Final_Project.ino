@@ -11,7 +11,7 @@ const int ECG1_pin = A6; // Creates a constant integer with the signal input for
 int pulse_signal = 0;
 int servo_value = 0; 
 int threshold = 30; // change! 
-String state = 'Start'; 
+char Str6[15] = "start"; 
 
 void setup() {
   Serial.begin(9600);
